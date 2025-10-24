@@ -188,5 +188,33 @@ Verifique it--:
 
 kubectl get pods -l app=frontend
 
+📊 Resultados Esperados
+
+Todos os microserviços da Online Boutique executando no cluster Kubernetes;
+
+O ArgoCD realizando sincronização automática a partir do repositório Git;
+
+O frontend acessível em http://localhost:8081;
+
+A infraestrutura totalmente versionada e rastreável no GitHub.
+
+🔐 Relação com DevSecOps
+
+Este projeto também demonstra conceitos fundamentais do DevSecOps, como:
+1. Segurança na automação: o ArgoCD aplica as mudanças de forma controlada e auditável.
+2. Versionamento seguro: qualquer alteração na infraestrutura passa por revisão via Git.
+3. Observabilidade: logs e estados de sincronização podem ser auditados pelo ArgoCD.
+
+🧠 Lições Aprendidas
+
+1. Entendimento prático de GitOps.
+2. Diferença entre 1 e 2 réplicas no Kubernetes (resiliência e escalabilidade).
+3. Diagnóstico e correção de erros no Rancher Desktop e WSL.
+4. Importância da automação e versionamento na infraestrutura moderna.
+
+👨‍💻 Autor
+
+Otávio Lana
+Estudante de Segurança da Informação | Estagiário em DevSecOps (UOL Compass)
 
 
