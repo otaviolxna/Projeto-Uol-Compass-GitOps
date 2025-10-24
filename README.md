@@ -81,7 +81,7 @@ Verifique os pods:
 
 kubectl get pods -n argocd
 
-![Verificação dos pods](/images/verificacao.png)
+![Verificação dos pods](/images/pods.png)
 
 A instalação será concluída quando todos estiverem com STATUS = Running.
 
