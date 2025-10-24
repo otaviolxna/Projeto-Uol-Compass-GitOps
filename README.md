@@ -34,7 +34,7 @@ O fork cria uma cópia pessoal de um repositório dentro da sua conta GitHub.
 Neste projeto, o fork é feito do repositório oficial da Google:
 👉 https://github.com/GoogleCloudPlatform/microservices-demo
 
-![fork do repositorio](/images/fork.png)
+![fork do repositorio](images/fork.png)
 
 Essa cópia permite:
 
@@ -50,7 +50,7 @@ Após o fork, cria-se um repositório limpo e dedicado ao ArgoCD, contendo apena
 
 Criar um repositório no GitHub chamado gitops-microservices
 
-![Criando o repositorio](/images/repositorio.png)
+![Criando o repositorio](images/repositorio.png)
 
 Criar a seguinte estrutura:
 
@@ -62,7 +62,7 @@ gitops-microservices/
 Copiar o conteúdo do arquivo original:
 microservices-demo/release/kubernetes-manifests.yaml
 
-![Criando o arquivo online-boutique](/images/online-boutique.png)
+![Criando o arquivo online-boutique](images/online-boutique.png)
 
 Fazer commit e push para o GitHub.
 
@@ -75,13 +75,13 @@ Crie o namespace e instale o ArgoCD com os manifests oficiais:
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-![Instalação do ArgoCD](/images/argo.png)
+![Instalação do ArgoCD](images/argo.png)
 
 Verifique os pods:
 
 kubectl get pods -n argocd
 
-![Verificação dos pods](/images/pods.png)
+![Verificação dos pods](images/pods.png)
 
 A instalação será concluída quando todos estiverem com STATUS = Running.
 
@@ -91,7 +91,7 @@ Crie o port-forward para acessar via navegador:
 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-![Interface ArgoCD](/images/interface.png)
+![Interface ArgoCD](images/interface.png)
 
 Acesse:
 👉 https://localhost:8080 no navegador de sua preferência
@@ -103,35 +103,35 @@ No PowerShell rode o comando para descobrir a senha do ArgoCD:
 kubectl -n argocd get secret argocd-initial-admin-secret `
  -o jsonpath="{.data.password}" | %{ [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
 
-![Descobrindo sua Senha](/images/senha.png)
+![Descobrindo sua Senha](images/senha.png)
 
 Após o primeiro login, é recomendável alterar a senha.
 
-![Site do ArgoCD](/images/navegador.png)
+![Site do ArgoCD](images/navegador.png)
 
 # Etapa 4 – Criar o App no ArgoCD
 
 No painel web, clique em NEW APP e preencha:
 
-Application Name -> online-boutique
-Project	         -> default
+1. Application Name -> online-boutique
+2. Project	         -> default
 
-![Criação do APP](/images/p1.png)
+![Criação do APP](images/p1.png)
 
-Repository URL -> URL do seu repositório Git
-Revision	   -> main
-Path	       -> k8s
+3. Repository URL -> URL do seu repositório Git
+4. Revision	   -> main
+5. Path	       -> k8s
 
-![Criação do APP](/images/p2.png)
+![Criação do APP](images/p2.png)
 
-Cluster URL	-> https://kubernetes.default.svc
-Namespace	-> default
+6. Cluster URL	-> https://kubernetes.default.svc
+7. Namespace	-> default
 
-![Criação do APP](/images/p3.png)
+![Criação do APP](images/p3.png)
 
 Depois clique em Create → Sync → Synchronize
 
-![Sincronização](/images/sync.png)
+![Sincronização](images/sync.png)
 
 O ArgoCD fará o deploy automático da aplicação.
 
@@ -148,7 +148,7 @@ cartservice-xxxx               Running
 frontend-xxxx                  Running
 ...
 
-![Verificação do Deploy](/images/deploy.png)
+![Verificação do Deploy](images/deploy.png)
 
 # Etapa 6 – Acessar o Frontend da Aplicação
 
@@ -156,7 +156,7 @@ Como o serviço frontend-external é do tipo ClusterIP, é necessário um port-f
 
 kubectl port-forward svc/frontend-external 8081:80
 
-![Subindo Site](/images/subindo.png)
+![Subindo Site](images/subindo.png)
 
 
 Acesse no navegador:
@@ -164,7 +164,7 @@ Acesse no navegador:
 
 Você verá a loja Online Boutique funcionando 🎉
 
-![Site Online](/images/site.png)
+![Site Online](images/site.png)
 
 # Etapa 7 – (Opcional) Customizar o Manifest
 
