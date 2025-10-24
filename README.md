@@ -34,7 +34,7 @@ O fork cria uma cópia pessoal de um repositório dentro da sua conta GitHub.
 Neste projeto, o fork é feito do repositório oficial da Google:
 👉 https://github.com/GoogleCloudPlatform/microservices-demo
 
-![fork](/images/fork.png)
+![fork do repositorio](/images/fork.png)
 
 Essa cópia permite:
 
@@ -47,8 +47,6 @@ Ter controle completo sobre a versão do código usada no deploy.
 ### 🧩 Estrutura do repositório GitOps
 
 Após o fork, cria-se um repositório limpo e dedicado ao ArgoCD, contendo apenas o arquivo necessário para o deploy.
-
-Passos:
 
 Criar um repositório no GitHub chamado gitops-microservices
 
@@ -67,6 +65,8 @@ microservices-demo/release/kubernetes-manifests.yaml
 ![online-boutique](/images/online-boutique.png)
 
 Fazer commit e push para o GitHub.
+
+
 
 Esse repositório se tornará a fonte de verdade do ArgoCD.
 
