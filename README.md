@@ -60,13 +60,10 @@ Criar um repositório no GitHub chamado gitops-microservices
 
 Criar a seguinte estrutura:
 
-gitops-microservices/
-└── k8s/
-    └── online-boutique.yaml
-
+gitops-microservices/k8s/online-boutique.yaml
 
 Copiar o conteúdo do arquivo original:
-microservices-demo/release/kubernetes-manifests.yaml
+[microservices-demo/release/kubernetes-manifests.yaml](https://github.com/GoogleCloudPlatform/microservices-demo/blob/main/release/kubernetes-manifests.yaml)
 
 ---
 ![Criando o arquivo online-boutique](images/online-boutique.png)
