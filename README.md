@@ -158,7 +158,6 @@ kubectl port-forward svc/frontend-external 8081:80
 
 ![Subindo Site](images/subindo.png)
 
-
 Acesse no navegador:
 👉 http://localhost:8081
 
