@@ -34,7 +34,7 @@ O fork cria uma cópia pessoal de um repositório dentro da sua conta GitHub.
 Neste projeto, o fork é feito do repositório oficial da Google:
 👉 https://github.com/GoogleCloudPlatform/microservices-demo
 
-![fork do repositorio](images/fork.png)
+![fork](images/fork.png)
 
 Essa cópia permite:
 
@@ -116,13 +116,13 @@ No painel web, clique em NEW APP e preencha:
 1. Application Name -> online-boutique
 2. Project	         -> default
 
-![Criação do APP](images/p1.png)
+![Criação do APP 1](images/p1.png)
 
 3. Repository URL -> URL do seu repositório Git
 4. Revision	   -> main
 5. Path	       -> k8s
 
-![Criação do APP](images/p2.png)
+![Criação do APP 2](images/p2.png)
 
 6. Cluster URL	-> https://kubernetes.default.svc
 7. Namespace	-> default
