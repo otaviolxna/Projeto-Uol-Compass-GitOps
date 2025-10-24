@@ -166,6 +166,27 @@ Você verá a loja Online Boutique funcionando 🎉
 
 ![Site Online](/images/site.png)
 
+# Etapa 7 – (Opcional) Customizar o Manifest
+
+Para testar o comportamento GitOps:
+
+Edite o arquivo online-boutique.yaml no GitHub.
+
+Altere, por exemplo:
+
+replicas: 1
+
+para
+
+replicas: 3
+
+Faça o commit no GitHub.
+
+O ArgoCD detectará a alteração e atualizará o cluster automaticamente, criando mais pods.
+
+Verifique it--:
+
+kubectl get pods -l app=frontend
 
 
 
