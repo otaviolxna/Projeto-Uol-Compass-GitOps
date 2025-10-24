@@ -66,7 +66,106 @@ microservices-demo/release/kubernetes-manifests.yaml
 
 Fazer commit e push para o GitHub.
 
-
-
 Esse repositório se tornará a fonte de verdade do ArgoCD.
+
+## Etapa 2 – Instalar o ArgoCD no Cluster Kubernetes
+
+Crie o namespace e instale o ArgoCD com os manifests oficiais:
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+![Instalação do ArgoCD](/images/argo.png)
+
+Verifique os pods:
+
+kubectl get pods -n argocd
+
+![verificação dos pods](/images/verificacao.png)
+
+A instalação será concluída quando todos estiverem com STATUS = Running.
+
+# Etapa 3 – Acessar o Painel do ArgoCD
+
+Crie o port-forward para acessar via navegador:
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+![Interface ArgoCD](/images/interface.png)
+
+Acesse:
+👉 https://localhost:8080 no navegador de sua preferência
+
+Usuário padrão: admin
+Senha inicial:
+
+No PowerShell rode o comando para descobrir a senha do ArgoCD:
+kubectl -n argocd get secret argocd-initial-admin-secret `
+ -o jsonpath="{.data.password}" | %{ [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+
+![Descobrindo sua Senha](/images/senha.png)
+
+Após o primeiro login, é recomendável alterar a senha.
+
+![Site do ArgoCD](/images/navegador.png)
+
+# Etapa 4 – Criar o App no ArgoCD
+
+No painel web, clique em NEW APP e preencha:
+
+Application Name -> online-boutique
+Project	         -> default
+
+![Criação do APP](/images/p1.png)
+
+Repository URL -> URL do seu repositório Git
+Revision	   -> main
+Path	       -> k8s
+
+![Criação do APP](/images/p2.png)
+
+Cluster URL	-> https://kubernetes.default.svc
+Namespace	-> default
+
+![Criação do APP](/images/p3.png)
+
+Depois clique em Create → Sync → Synchronize
+
+![Sincronização](/images/sync.png)
+
+O ArgoCD fará o deploy automático da aplicação.
+
+# Etapa 5 – Verificar o Deploy
+
+Verifique se os pods foram criados:
+
+kubectl get pods
+
+Saída esperada:
+
+adservice-xxxx                 Running
+cartservice-xxxx               Running
+frontend-xxxx                  Running
+...
+
+![Verificação do Deploy](/images/deploy.png)
+
+# Etapa 6 – Acessar o Frontend da Aplicação
+
+Como o serviço frontend-external é do tipo ClusterIP, é necessário um port-forward:
+
+kubectl port-forward svc/frontend-external 8081:80
+
+![Subindo Site](/images/subindo.png)
+
+
+Acesse no navegador:
+👉 http://localhost:8081
+
+Você verá a loja Online Boutique funcionando 🎉
+
+![Site Online](/images/site.png)
+
+
+
 
