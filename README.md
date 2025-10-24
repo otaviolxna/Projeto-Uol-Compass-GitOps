@@ -158,7 +158,7 @@ No painel web, clique em NEW APP e preencha:
 7. Namespace	-> default
 
 ---
-![Criação do APP](images/p3.png)
+![Criação do APP 3](images/p3.png)
 
 ---
 Depois clique em Create → Sync → Synchronize
