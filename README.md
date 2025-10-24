@@ -50,7 +50,7 @@ Após o fork, cria-se um repositório limpo e dedicado ao ArgoCD, contendo apena
 
 Criar um repositório no GitHub chamado gitops-microservices
 
-![repositorio](/images/repositorio.png)
+![Criando o repositorio](/images/repositorio.png)
 
 Criar a seguinte estrutura:
 
@@ -62,7 +62,7 @@ gitops-microservices/
 Copiar o conteúdo do arquivo original:
 microservices-demo/release/kubernetes-manifests.yaml
 
-![online-boutique](/images/online-boutique.png)
+![Criando o arquivo online-boutique](/images/online-boutique.png)
 
 Fazer commit e push para o GitHub.
 
@@ -81,7 +81,7 @@ Verifique os pods:
 
 kubectl get pods -n argocd
 
-![verificação dos pods](/images/verificacao.png)
+![Verificação dos pods](/images/verificacao.png)
 
 A instalação será concluída quando todos estiverem com STATUS = Running.
 
