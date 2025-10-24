@@ -224,10 +224,6 @@ Faça o commit no GitHub.
 
 O ArgoCD detectará a alteração e atualizará o cluster automaticamente, criando mais pods.
 
-Verifique it--:
-
-kubectl get pods -l app=frontend
-
 📊 Resultados Esperados
 
 Todos os microserviços da Online Boutique executando no cluster Kubernetes;
